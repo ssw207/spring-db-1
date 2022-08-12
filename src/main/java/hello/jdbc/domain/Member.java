@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Member {
 
 	private String memberId;
-	private int moneyy;
+	private int money;
 
 
 }

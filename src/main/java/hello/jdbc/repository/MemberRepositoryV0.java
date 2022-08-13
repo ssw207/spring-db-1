@@ -4,9 +4,8 @@ import hello.jdbc.connection.DBConnectionUtil;
 import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.NoSuchElementException;
 
 /**
  * Created by seungwoo.song on 2022-08-08
@@ -20,7 +19,7 @@ public class MemberRepositoryV0 {
 		try (Connection con = getConnection();
 			PreparedStatement pstmt = con.prepareStatement(sql);) {
 			pstmt.setString(1, member.getMemberId());
-			pstmt.setInt(2, member.getMoneyy());
+			pstmt.setInt(2, member.getMoney());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			log.error("db error", e);
